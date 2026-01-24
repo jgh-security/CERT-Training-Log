@@ -20,5 +20,5 @@
 
 ## 📂 주차별 상세 기록
 
-* [1주차: RHEL 보안 로그 기초 분석](https://github.com/jgh-security/CERT-Training-Log/blob/main/1-week/README.md)
+* [1주차: RHEL 보안 로그 기초 분석](1-week/README.md)
 * [2주차: 예정...]
