@@ -1,1 +1,0 @@
-# Thursday - Commands (last / lastb
