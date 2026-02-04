@@ -1,4 +1,4 @@
-## ## 3_wednesday 실습 상세 분석 보고서 (2주차)
+## 3_wednesday 실습 상세 분석 보고서 (2주차)
 
 ---
 
@@ -30,3 +30,4 @@
 ### 실습 기술 요약
 * **Display Filter:** 특정 서비스 포트를 타겟팅하여 대규모 트래픽 속에서 분석에 필요한 데이터만 정밀하게 추출함.
 * **Protocol Lifecycle Analysis:** TCP 연결의 시작(Handshake)부터 종료(Termination)까지의 전체 라이프사이클을 추적하여 네트워크 통신의 메커니즘을 이해함.
+
