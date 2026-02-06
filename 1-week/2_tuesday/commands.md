@@ -1,4 +1,4 @@
-## 1_tuesday 실습 상세 분석 보고서 (1주차)
+## 2_tuesday 실습 상세 분석 보고서 (1주차)
 
 ---
 
@@ -32,3 +32,4 @@
 ### 실습 기술 요약
 * **Security Log Pattern Recognition:** 인증 실패 시 발생하는 로그의 고유 패턴(Failed password, Auth failure)을 식별하여 비정상적인 접근 시도를 판별하는 능력을 함양함.
 * **Attacker Profiling:** 로그에 기록된 원격 호스트(rhost) 정보와 포트 정보를 기반으로 공격의 기점과 공격 방식을 프로파일링하는 기초 과정을 실습함.
+
