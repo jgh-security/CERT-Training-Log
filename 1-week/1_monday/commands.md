@@ -35,4 +35,5 @@
 
 ### 실습 기술 요약
 * **Integrated Log Analysis:** `journalctl`을 활용하여 수많은 시스템 메시지 중 특정 서비스와 관련된 핵심 보안 데이터만 필터링하는 능력을 배양함.
-* **Security Event Correlation
+* **Security Event Correlation:** 외부의 접속 실패 메시지와 서버 내부의 인증 기록이 시간대별로 정확히 일치함을 확인하여 로그 정합성을 검증함.
+
