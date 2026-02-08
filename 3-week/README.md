@@ -1,32 +1,47 @@
-# ??? 2���� �ǽ�: ��Ʈ��ũ ��Ŷ �м� ���� (Wireshark & tcpdump)
 
-�� �ǽ��� ��Ʈ��ũ ���� ������ ������ ��Ŷ ������ �ľ��ϰ�, �ý��� �α׿� ��Ʈ��ũ Ʈ���� ���� ������踦 �м��ϴ� �� ������ �ֽ��ϴ�.
+# 3주차 실습: 네트워크 공격 패턴 분석 및 탐지 심화 (`Nmap` & `Dos`)
 
----
-
-### ?? �ְ� �ǽ� ���� �� ����
-
-#### **1. [������: ��Ʈ��ũ �������̽� ����͸�](./1_monday/)**
-- [ ] [��Ʈ��ũ ���� �� Ȱ�� ���� ȭ�� ĸó](./1_monday/screenshots/)
-- [ ] [�������̽� ���� �� �ֿ� ���� ���� ��� (Link)](./1_monday/commands.md)
-
-#### **2. [ȭ����: ��Ŷ ���� ���� (tcpdump)](./2_tuesday/)**
-- [ ] [Ư�� ��Ʈ ��Ŷ ĸó ȭ�� ĸó](./2_tuesday/screenshots/)
-- [ ] [tcpdump �ɼ� ���� �� �м� ��� ��� (Link)](./2_tuesday/commands.md)
-
-#### **3. [������: �������� �� �м� (Wireshark)](./3_wednesday/)**
-- [ ] [TCP 3-Way Handshake ���� �� ĸó](./3_wednesday/screenshots/)
-- [ ] [������ �������� �м� ��� ��� (Link)](./3_wednesday/commands.md)
-
-#### **4. [�����: �α�-��Ŷ ������� �м�](./4_thursday/)**
-- [ ] [SSH ���� �� �߻��ϴ� ��Ŷ �帧 ĸó](./4_thursday/screenshots/)
-- [ ] [�α׿� ��Ŷ �� Ÿ�Ӷ��� ���ռ� �м� (Link)](./4_thursday/commands.md)
-
-#### **5. [�ݿ���: ������ ���� ���� �� ���](./5_friday/)**
-- [ ] [ĸó �̹��� ���̹�, pcap ���� ��� �� ����Ʈ �ۼ�](./5_friday/checklist.md)
+본 실습은 2주차에 습득한 패킷 분석 기술을 바탕으로, 실제 네트워크 공격 발생 시 생성되는 트래픽 패턴을 분석하고 시스템 로그와의 연관성을 규명하는 데 목적이 있습니다.
 
 ---
 
-### 2���� ����
-> **��ǥ:** ��Ʈ��ũ Ʈ���� �м��� ���� ħ�� Ž�� ���� Ȯ��
-> **ȯ��:** RHEL (Target), Kali Linux (Attacker), Wireshark
+### 주간 실습 일정 및 내용
+
+#### **1. [월요일: 네트워크 정찰 패턴 분석 (`Nmap`)](./1_monday/)**
+- **실습 목표:** 포트 스캐닝 시 발생하는 패킷 흐름 및 유입 로그 식별
+- **주요 명령어:** `nmap -sS`, `tcpdump -i any port 22`
+- **수행 기록:**
+  - [ ] [스캐닝 패킷 유입 및 실시간 모니터링 화면 캡처](./1_monday/screenshots/)
+  - [ ] [특이사항 및 상세 분석 확인 (Link)](./1_monday/commands.md)
+
+#### **2. [화요일: 서비스 거부 공격 분석 (`DoS`)](./2_tuesday/)**
+- **실습 목표:** 비정상적 대량 트래픽(Flooding) 발생 시 네트워크 상태 변화 분석
+- **실습 방법:** `hping3` 등을 이용한 SYN Flood 시도 → 패킷 레이트 및 부하 확인
+- **수행 기록:**
+  - [ ] [Flooding 패킷 캡처 및 시스템 리소스 변화 화면 캡처](./2_tuesday/screenshots/)
+  - [ ] [분석 결과 및 공격 패턴 상세 기록 (Link)](./2_tuesday/commands.md)
+
+#### **3. [수요일: 무차별 대입 공격 심화 분석 (`Brute Force`)](./3_wednesday/)**
+- **실습 목표:** 자동화 도구를 이용한 다수의 인증 실패 로그 및 패킷 임계치 파악
+- **주요 명령어:** `hydra` (공격자), `tail -f /var/log/secure` (서버)
+- **수행 기록:**
+  - [ ] [연속적 인증 실패 패킷 및 보안 로그 기록 화면 캡처](./3_wednesday/screenshots/)
+  - [ ] [분석 결과 및 탐지 임계치 설정 내역 (Link)](./3_wednesday/commands.md)
+
+#### **4. [목요일: 공격 시나리오 통합 상관분석 (Advanced Correlation)](./4_thursday/)**
+- **실습 목표:** 정찰부터 공격 시도까지의 전 과정을 타임라인별로 통합 검증
+- **주요 명령어:** `Wireshark` 시각화 + `journalctl` 시간대 정밀 대조
+- **수행 기록:**
+  - [ ] [공격 단계별(Scan-Attack) 통합 증적 비교 화면 캡처](./4_thursday/screenshots/)
+  - [ ] [분석 결과 및 침입 흔적 타임라인 상세 (Link)](./4_thursday/commands.md)
+
+#### **5. [금요일: 데이터 최종 점검 및 백업](./5_friday/)**
+- **체크리스트:** [실습 증거 자료 정리 및 결과 리포트 작성](./5_friday/checklist.md)
+
+---
+
+### 3주차 네트워크 보안 관제 심화 실습 기록
+
+- **목표:** 공격 유형별 패킷 특징 파악을 통한 탐지 및 대응 역량 강화
+- **기간:** 2026.02.09 ~ 2026.02.13
+- **환경:** RHEL (Target), Kali Linux (Attacker), Wireshark, Nmap
