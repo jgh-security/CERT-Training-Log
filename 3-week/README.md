@@ -9,7 +9,7 @@
 
 #### **1. [월요일: 네트워크 정찰 패턴 분석 (`Nmap`)](./1_monday/)**
 - **실습 목표:** 포트 스캐닝 시 발생하는 패킷 흐름 및 유입 로그 식별
-- **주요 명령어:** `nmap -sS`, `tcpdump -i any port 22`
+- **주요 명령어:** `nmap -sS -sV`, `tcpdump -i any port 22`
 - **수행 기록:**
   - [ ] [스캐닝 패킷 유입 및 실시간 모니터링 화면 캡처](./1_monday/screenshots/)
   - [ ] [특이사항 및 상세 분석 확인 (Link)](./1_monday/commands.md)
