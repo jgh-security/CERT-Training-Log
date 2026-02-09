@@ -18,7 +18,7 @@
     - **Initial State:** 스캔 시작 전, 시스템 로그에는 분석 도구 실행(`sudo`) 및 세션 오픈 기록 외에 외부 접속 흔적이 없음을 확인함.
 
 #### ② Nmap 정밀 스캔 및 서비스 버전 식별
-![공격결과](./screenshots/02_kali_nmap_version_scan.jpg)
+![공격결과](./screenshots/02_kali_nmap_version_scan.png)
 * **분석:** Stealth 스캔을 통해 탐지를 최소화하면서 타겟의 열린 포트와 구동 중인 서비스 버전을 정확히 탈취함.
 * **상세:** - **Scan Methodology:** `-sS`(TCP SYN Scan)를 기본으로 `-sV`(Version Detection) 옵션을 추가하여 정밀 진단 수행.
     - **Information Gain:** 타겟 서버(192.168.200.81)에서 **OpenSSH 9.9 (protocol 2.0)** 버전이 구동 중임을 확인하였으며, 이는 취약점 분석의 결정적 데이터가 됨.
@@ -36,3 +36,4 @@
 * **Stealth Scan Analysis:** TCP 3-Way Handshake를 완성하지 않는 SYN 스캔이 애플리케이션 로그 생성을 회피하는 메커니즘을 이해함.
 * **Service Fingerprinting:** 서비스 배너 수집을 통해 단순 포트 오픈 확인을 넘어 구체적인 취약점 공격 대상을 식별하는 과정을 습득함.
 * **Log vs Packet Correlation:** 로그 기반 탐지의 한계를 확인하고, 네트워크 트래픽 분석(DPI)을 통한 실질적인 위협 모니터링 방안을 도출함.
+
