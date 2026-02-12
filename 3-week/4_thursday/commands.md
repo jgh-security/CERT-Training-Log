@@ -39,3 +39,4 @@
 * **Evidence Incontestability:** 단일 로그가 아닌 다각도의 증적(시간, 포트, 플래그)을 제시함으로써 분석 결과의 객관성과 부인 방지(Non-repudiation) 특성을 확보함.
 * **Incident Response Strategy:** 상관분석을 통해 확보된 공격자의 IP와 공격 패턴을 기반으로 유사 공격에 대한 방화벽 정책 및 침입 차단 규칙 수립의 근거를 마련함.
 
+
