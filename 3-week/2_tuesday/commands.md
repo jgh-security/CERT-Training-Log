@@ -3,7 +3,7 @@
 ---
 
 ## 1. TCP SYN Flooding 공격을 통한 자원 고갈(DoS) 분석
-- **실습 목표:** 위조된 소스 IP 기반의 대량 SYN 패킷 유입 시, 서버의 연결 제어 자원(Backlog Queue)이 고갈되는 메커니즘을 분석하고 서비스 불능 상태를 검증함.
+- **실습 목표:** 위조된 소스 IP 기반의 대량 SYN 패킷 유입 시, 서버의 연결 제어 자원(Backlog Queue)이 고갈되는 메커니즘을 분석하고 서비스 불능 상태를 검증.
 - **주요 명령어:** `sudo hping3 -S [Target_IP] -p 22 --flood --rand-source`, `netstat -an | grep SYN_RECV`
 - **실습 내용:** 공격자(Kali)가 IP 스푸핑 기법으로 타겟 서버에 수십만 건의 Half-open 연결을 강제하여 정상적인 서비스를 마비시키는 과정을 재현함.
 
@@ -43,6 +43,7 @@
 * **TCP 3-Way Handshake Vulnerability:** 연결 설정 과정의 구조적 취약점을 이용해 서버를 '반개방(Half-open)' 상태로 방치시키는 공격 원리를 심층 이해함.
 * **IP Spoofing & Flooding:** 소스 IP 위조를 통해 보안 장비의 차단을 우회하고 대역폭 및 가용 자원을 고갈시키는 공격 기법을 실습함.
 * **Defense Strategy Insight:** 서비스 가용성 확보를 위한 SYN Cookie 설정 등 대응 방안의 필요성을 체감함.
+
 
 
 
