@@ -23,4 +23,4 @@
 * [1주차: RHEL 보안 로그 기초 분석](1-week/README.md)
 * [2주차: 네트워크 패킷 분석 기초](2-week/README.md)
 * [3주차: 네트워크 공격 패턴 분석 및 탐지 심화](3-week/README.md)
-* [4주차: 예정...]
+* [4주차: Linux SSH 침해 사고 종합 분석 (Incident 기반)](4-week/README.md)
