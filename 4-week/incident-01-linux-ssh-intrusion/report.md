@@ -39,8 +39,25 @@ SSH 로그인 성공(17:48:52) 이후 약 1분 11초 만에 sudo 권한을 사�
 
 ---
 
-## 6. IOC 정리
-(목요일에 작성 예정)
+## 6. IOC (Indicators of Compromise)
+
+| 구분 | 값 | 설명 |
+|------|----|------|
+| Source IP | 192.168.200.80 | SSH 로그인 성공이 발생한 원격 IP |
+| 인증 계정 | target | 침해에 사용된 정상 사용자 계정 |
+| 신규 계정 | intruder | 침입 후 생성된 계정 |
+| 생성 파일 | /tmp/compromised_file | 침입 후 생성된 임시 파일 |
+| 실행 명령 | useradd intruder | 시스템 계정 생성 행위 |
+| 실행 명령 | touch /tmp/compromised_file | 파일 생성 행위 |
+| 실행 명령 | sh -c 'echo "intrusion test" >> /tmp/compromised_file' | 파일 내용 변경 행위 |
+| 로그 위치 | /var/log/secure | 인증 및 sudo 기록 확인 로그 |
+
+### IOC 분석
+
+본 침해는 단일 Source IP(192.168.200.80)에서 시작되었으며,
+SSH 인증 성공 이후 시스템 계정 생성 및 파일 생성 행위가 연속적으로 발생하였다.
+특히 신규 계정(intruder) 생성은 지속성 확보(Persistence) 시도로 해석될 수 있으며,
+이는 단순 로그인 실패 이벤트와 구별되는 명확한 침해 지표로 판단된다.
 
 ---
 
@@ -51,5 +68,6 @@ SSH 로그인 성공(17:48:52) 이후 약 1분 11초 만에 sudo 권한을 사�
 
 ## 8. 결론
 (금요일에 작성 예정)
+
 
 
