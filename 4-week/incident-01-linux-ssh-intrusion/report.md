@@ -23,13 +23,15 @@
 ---
 
 ## 5. 타임라인 재구성
-| 시간 | 이벤트 | 근거 로그 |
-|------|--------|-----------|
-| 17:48:52 | SSH 로그인 성공 | Accepted password for target |
-| 17:50:03 | sudo useradd 실행 | COMMAND=/bin/useradd intruder |
-| 17:50:03 | 신규 계정 생성 | new user: name=intruder |
-| 18:59:14 | 파일 생성 | COMMAND=/bin/touch /tmp/compromised_file |
-| 19:04:57 | 파일 내용 추가 | COMMAND=/bin/sh -c 'echo "intrusion test" >> /tmp/compromised_file' |
+
+| 시간 | 이벤트 | 근거 로그 | 해석 |
+|------|--------|-----------|------|
+| 17:34:34 | SSH 로그인 성공 (1차) | Accepted password for target | 이후 시스템 변경 행위 없음(테스트/사전 접속 가능성) |
+| 17:48:52 | SSH 로그인 성공 (2차) | Accepted password for target | 이후 sudo 및 계정 생성으로 이어짐(본 사건 시작점) |
+| 17:50:03 | sudo useradd 실행 | COMMAND=/bin/useradd intruder | 권한 사용을 통한 시스템 변경 |
+| 17:50:03 | 신규 계정 생성 | new user: name=intruder | 지속성(Persistence) 확보 시도 가능 |
+| 18:59:14 | 파일 생성 | COMMAND=/bin/touch /tmp/compromised_file | 침입 후 아티팩트 생성 |
+| 19:04:57 | 파일 내용 추가 | COMMAND=/bin/sh -c 'echo "intrusion test" >> /tmp/compromised_file' | 생성 파일 변경(내부 활동) |
 
 ### 분석 요약
 
@@ -98,6 +100,7 @@ SSH 인증 성공 이후 시스템 계정 생성 및 파일 생성 행위가 연
 
 본 사례는 SSH 접근 통제, 계정 관리, 로그 모니터링의 중요성을 보여주는 대표적인 사례로,
 기본 보안 설정 강화만으로도 유사 침해를 효과적으로 예방할 수 있음을 확인하였다.
+
 
 
 
