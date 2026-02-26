@@ -14,7 +14,49 @@
 
 ## 3. 공격 재현 과정
 
+### 3.1 사전 준비
 
+- Target: RHEL 서버 (SSH 서비스 활성화 상태)
+- Attacker: Kali Linux
+- 공격 대상 계정: target
+- 실습 비밀번호: 0000 (취약한 비밀번호 설정)
+
+---
+
+### 3.2 SSH Brute Force 수행
+
+Kali 환경에서 다음 명령어를 통해 SSH Brute Force 공격을 수행하였다.
+
+```bash
+echo 0000 > pass.txt
+hydra -l target -P pass.txt 192.168.200.81 ssh -t 4 -V
+
+공격 결과, target 계정의 비밀번호가 0000으로 확인되어 SSH 로그인에 성공하였다.
+
+3.3 침입 후 내부 행위 수행
+
+SSH 로그인 이후 sudo 권한을 사용하여 시스템 변경 행위를 수행하였다.
+
+sudo useradd intruder
+sudo touch /tmp/compromised_file
+sudo sh -c 'echo "intrusion test" >> /tmp/compromised_file'
+
+수행된 행위는 다음과 같다.
+
+신규 계정 intruder 생성
+
+/tmp/compromised_file 파일 생성
+
+파일 내 문자열 추가
+
+이는 단순 로그인 이후 시스템 내부 변경이 발생한 것으로,
+침해 활동이 실제로 수행되었음을 보여준다.
+
+3.4 로그 기반 행위 확인
+
+침입 이후 /var/log/secure 로그를 통해 인증 성공 및 sudo 실행 기록을 확인하였다.
+
+sudo tail -n 30 /var/log/secure
 
 ---
 
@@ -101,6 +143,7 @@ SSH 인증 성공 이후 시스템 계정 생성 및 파일 생성 행위가 연
 
 본 사례는 SSH 접근 통제, 계정 관리, 로그 모니터링의 중요성을 보여주는 대표적인 사례로,
 기본 보안 설정 강화만으로도 유사 침해를 효과적으로 예방할 수 있음을 확인하였다.
+
 
 
 
