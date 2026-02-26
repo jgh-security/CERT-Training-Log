@@ -1,0 +1,25 @@
+Feb 23 17:34:34 target sshd-session[9883]: Received disconnect from 192.168.200.80 port 58746:11: Bye Bye [preauth]
+Feb 23 17:34:34 target sshd-session[9883]: Disconnected from authenticating user target 192.168.200.80 port 58746 [preauth]
+Feb 23 17:34:34 target sshd-session[9885]: Accepted password for target from 192.168.200.80 port 58762 ssh2
+Feb 23 17:34:34 target sshd-session[9885]: pam_unix(sshd:session): session opened for user target(uid=1000) by target(uid=0)
+Feb 23 17:34:34 target sshd-session[9889]: Connection closed by 192.168.200.80 port 58762
+Feb 23 17:34:34 target sshd-session[9885]: pam_unix(sshd:session): session closed for user target
+Feb 23 17:48:52 target sshd-session[10155]: Accepted password for target from 192.168.200.80 port 55146 ssh2
+Feb 23 17:48:52 target sshd-session[10155]: pam_unix(sshd:session): session opened for user target(uid=1000) by target(uid=0)
+Feb 23 17:50:03 target sudo[10228]:  target : TTY=pts/1 ; PWD=/home/target ; USER=root ; COMMAND=/sbin/useradd intruder
+Feb 23 17:50:03 target sudo[10228]: pam_unix(sudo:session): session opened for user root(uid=0) by target(uid=1000)
+Feb 23 17:50:03 target useradd[10237]: new group: name=intruder, GID=1002
+Feb 23 17:50:03 target useradd[10237]: new user: name=intruder, UID=1002, GID=1002, home=/home/intruder, shell=/bin/bash, from=/dev/pts/2
+Feb 23 17:50:03 target sudo[10228]: pam_unix(sudo:session): session closed for user root
+Feb 23 18:59:14 target sudo[12137]:  target : TTY=pts/1 ; PWD=/home/target ; USER=root ; COMMAND=/bin/touch /tmp/compromised_file
+Feb 23 18:59:14 target sudo[12137]: pam_unix(sudo:session): session opened for user root(uid=0) by target(uid=1000)
+Feb 23 18:59:14 target sudo[12137]: pam_unix(sudo:session): session closed for user root
+Feb 23 19:04:57 target sudo[12259]:  target : TTY=pts/1 ; PWD=/home/target ; USER=root ; COMMAND=/bin/sh -c 'echo "intrusion test" >> /tmp/compromised_file'
+Feb 23 19:04:57 target sudo[12259]: pam_unix(sudo:session): session opened for user root(uid=0) by target(uid=1000)
+Feb 23 19:04:57 target sudo[12259]: pam_unix(sudo:session): session closed for user root
+Feb 23 19:24:27 target sudo[12640]:  target : TTY=pts/0 ; PWD=/home/target ; USER=root ; COMMAND=/bin/tail -n 30 /var/log/secure
+Feb 23 19:24:27 target (systemd)[12653]: pam_unix(systemd-user:session): session opened for user root(uid=0) by root(uid=0)
+Feb 23 19:24:27 target sudo[12640]: pam_unix(sudo:session): session opened for user root(uid=0) by target(uid=1000)
+Feb 23 19:24:27 target sudo[12640]: pam_unix(sudo:session): session closed for user root
+Feb 26 20:02:20 target sudo[15744]:  target : TTY=pts/2 ; PWD=/home/target ; USER=root ; COMMAND=/bin/grep 'Feb 23' /var/log/secure
+Feb 26 20:02:28 target sudo[15753]:  target : TTY=pts/2 ; PWD=/home/target ; USER=root ; COMMAND=/bin/grep 'Feb 23' /var/log/secure
