@@ -34,7 +34,7 @@ hydra -l target -P pass.txt 192.168.200.81 ssh -t 4 -V
 ![Hydra Attack Success](./evidence/screenshots/01_hydra_success.png)
 
 > Hydra를 통해 target 계정의 비밀번호가 0000으로 확인되었다.
-> 
+
 ### 3.3 침입 후 내부 행위 수행
 
 SSH 로그인 이후 sudo 권한을 사용하여 시스템 변경 행위를 수행하였다.
@@ -174,6 +174,7 @@ SSH 인증 성공 이후 시스템 계정 생성 및 파일 생성 행위가 연
 
 본 사례는 SSH 접근 통제, 계정 관리, 로그 모니터링의 중요성을 보여주는 대표적인 사례로,
 기본 보안 설정 강화만으로도 유사 침해를 효과적으로 예방할 수 있음을 확인하였다.
+
 
 
 
