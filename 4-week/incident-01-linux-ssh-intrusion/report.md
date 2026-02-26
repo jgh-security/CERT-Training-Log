@@ -59,10 +59,9 @@ sudo sh -c 'echo "intrusion test" >> /tmp/compromised_file'
 
 > SSH 로그인 성공 화면
 
-![Intruder Account Created](./evidence/screenshots/03_intruder_created.png)
+![Intruder Account Created](./evidence/screenshots/03_intruder_and_file_confirm.png)
 
-> intruder 계정이 실제로 생성된 것을 확인하였다.
-
+> intruder 계정 생성 및 파일 생성 확인
 ### 3.4 로그 기반 행위 확인
 
 침입 이후 /var/log/secure 로그를 통해 인증 성공 및 sudo 실행 기록을 확인하였다.
@@ -159,6 +158,7 @@ SSH 인증 성공 이후 시스템 계정 생성 및 파일 생성 행위가 연
 
 본 사례는 SSH 접근 통제, 계정 관리, 로그 모니터링의 중요성을 보여주는 대표적인 사례로,
 기본 보안 설정 강화만으로도 유사 침해를 효과적으로 예방할 수 있음을 확인하였다.
+
 
 
 
