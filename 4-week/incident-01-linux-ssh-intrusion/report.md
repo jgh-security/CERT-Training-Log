@@ -57,7 +57,11 @@ sudo sh -c 'echo "intrusion test" >> /tmp/compromised_file'
 침해 활동이 실제로 수행되었음을 보여준다.
 ![SSH Login Success](./evidence/screenshots/02_ssh_login.png)
 
-> SSH 로그인 이후 시스템 내부에서 권한 상승 및 계정 생성 행위가 수행되었다.
+> SSH 로그인 성공 화면
+
+![Intruder Account Created](./evidence/screenshots/03_intruder_created.png)
+
+> intruder 계정이 실제로 생성된 것을 확인하였다.
 
 ### 3.4 로그 기반 행위 확인
 
@@ -66,6 +70,9 @@ sudo sh -c 'echo "intrusion test" >> /tmp/compromised_file'
 ```bash
 sudo tail -n 30 /var/log/secure
 ```
+![Secure Log Evidence](./evidence/screenshots/04_secure_log.png)
+
+> Accepted password → useradd → 파일 생성 순으로 로그가 기록되었음을 확인하였다.
 
 ---
 
@@ -152,6 +159,7 @@ SSH 인증 성공 이후 시스템 계정 생성 및 파일 생성 행위가 연
 
 본 사례는 SSH 접근 통제, 계정 관리, 로그 모니터링의 중요성을 보여주는 대표적인 사례로,
 기본 보안 설정 강화만으로도 유사 침해를 효과적으로 예방할 수 있음을 확인하였다.
+
 
 
 
