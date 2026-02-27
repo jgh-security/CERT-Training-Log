@@ -24,4 +24,4 @@
 * [2주차: 네트워크 패킷 분석 기초](2-week/README.md)
 * [3주차: 네트워크 공격 패턴 분석 및 탐지 심화](3-week/README.md)
 * [4주차: Linux SSH 침해 사고 종합 분석 (Incident 기반)](4-week/README.md)
-* [5주차: 예정..]
+* [5주차: 웹 SQL Injection 침해 로그 분석 (DVWA 기반)](5-week/README.md)
