@@ -7,3 +7,8 @@ SSH 기반 침해 시나리오를 구성하고,
 
 ## Incident 목록
 - [Incident 01: Linux SSH Intrusion Analysis](./incident-01-linux-ssh-intrusion/report.md)
+
+---
+
+※ 본 주차는 시스템 기반 침해(SSH)를 중심으로
+로그 분석 및 타임라인 재구성 역량을 강화하는 데 목적이 있으며, report.md에 상세 내용을 정리한다.
