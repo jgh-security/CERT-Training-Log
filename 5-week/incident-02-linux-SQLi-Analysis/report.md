@@ -6,11 +6,11 @@
 ---
 
 ## 2. 분석 환경
-- Target:
-- Attacker:
-- Web Server:
-- Application:
-- 주요 로그:
+- Target: RHEL
+- Attacker: Kali Linux
+- Web Server: nginx
+- Application: DVWA
+- 주요 로그: /var/log/nginx/access.log
 
 ---
 
@@ -57,3 +57,4 @@
 
 ## 8. 결론
 (작성 예정)
+
