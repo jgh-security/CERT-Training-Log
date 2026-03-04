@@ -20,7 +20,12 @@
 (작성 예정)
 
 ### 3.2 자동화 도구 사용
-(작성 예정)
+Kali Linux에서 sqlmap을 사용하여 DVWA SQL Injection 취약점을 자동으로 탐지하였다.
+세션 유지를 위해 DVWA 로그인 쿠키(PHPSESSID, security=low)를 전달하였다.
+
+sqlmap 분석 결과, GET 파라미터 id가 SQL Injection에 취약하며,
+time-based blind(SLEEP) 및 UNION 기반 기법으로 취약점이 확인되었다.
+또한 DBMS는 MariaDB(MySQL fork)로 식별되었고, dvwa DB가 존재함을 확인하였다.
 
 ---
 
@@ -57,4 +62,5 @@
 
 ## 8. 결론
 (작성 예정)
+
 
