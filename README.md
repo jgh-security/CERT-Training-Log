@@ -26,3 +26,4 @@
 * [4주차: Linux SSH 침해 사고 종합 분석 (Incident 기반)](4-week/README.md)
 * [5주차: 웹 SQL Injection 침해 로그 분석 (DVWA 기반)](5-week/README.md)
 * [6주차: 웹 XSS 침해 로그 분석 (DVWA 기반)](6-week/README.md)
+* [7주차: 웹 File Upload 침해 로그 분석 (DVWA 기반)](7-week/README.md)
