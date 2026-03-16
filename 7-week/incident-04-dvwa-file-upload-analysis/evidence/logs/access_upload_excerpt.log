@@ -1,0 +1,2 @@
+192.168.200.1 - - [16/Mar/2026:14:03:39 +0900] "POST /vulnerabilities/upload/ HTTP/1.1" 200 4662 "http://192.168.200.81/vulnerabilities/upload/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" "-"
+192.168.200.1 - - [16/Mar/2026:14:04:24 +0900] "GET /hackable/uploads/test.txt HTTP/1.1" 200 16 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" "-"
