@@ -15,11 +15,10 @@
 | 구분 | 환경 |
 |------|------|
 | Target | RHEL |
-| Attacker | Kali Linux |
+| Client | Local Browser |
 | Web Server | nginx |
 | Web Application | DVWA |
 | 주요 로그 | /var/log/nginx/access.log |
-
 ---
 
 ## 3. 공격 재현 과정
