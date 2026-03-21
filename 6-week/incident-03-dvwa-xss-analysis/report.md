@@ -12,14 +12,13 @@
 
 ## 2. 분석 환경
 
-| 구분              | 환경                        |
-| --------------- | ------------------------- |
-| Target          | RHEL                      |
-| Attacker        | Kali Linux                |
-| Web Server      | nginx                     |
-| Web Application | DVWA                      |
-| 주요 로그           | /var/log/nginx/access.log |
-
+| 구분 | 환경 |
+|------|------|
+| Target | RHEL |
+| Client | Local Browser |
+| Web Server | nginx |
+| Web Application | DVWA |
+| 주요 로그 | /var/log/nginx/access.log |
 ---
 
 ## 3. 공격 재현 과정
