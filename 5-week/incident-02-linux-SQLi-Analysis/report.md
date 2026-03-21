@@ -15,7 +15,7 @@
 | 구분 | 환경 |
 |-----|------|
 | Target | RHEL |
-| Attacker | Kali Linux |
+| Client | Browser / sqlmap |
 | Web Server | nginx |
 | Web Application | DVWA |
 | 주요 로그 | /var/log/nginx/access.log |
