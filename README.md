@@ -27,3 +27,4 @@
 * [5주차: 웹 SQL Injection 침해 로그 분석 (DVWA 기반)](5-week/README.md)
 * [6주차: 웹 XSS 침해 로그 분석 (DVWA 기반)](6-week/README.md)
 * [7주차: 웹 File Upload 침해 로그 분석 (DVWA 기반)](7-week/README.md)
+* [8주차: WebShell 기반 명령 실행(RCE) 침해 로그 분석 (DVWA 기반)](8-week/README.md)
