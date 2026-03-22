@@ -4,7 +4,7 @@
 File Upload 취약점을 이용한 WebShell 업로드 및 명령 실행 공격 분석
 
 ## Incident 목록
-- [Incident 05: DVWA WebShell Attack Analysis](./incident-05-dvwa-webshell-analysis/report.md)
+- [Incident 05: DVWA WebShell Attack Analysis](./incident-05-dvwa_webshell_analysis/report.md)
 
 ## 목표
 - WebShell 구조 및 동작 방식 이해
