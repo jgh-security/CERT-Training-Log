@@ -4,7 +4,7 @@
 File Upload 취약점 기반 웹 업로드 공격 및 업로드 파일 실행 분석
 
 ## Incident 목록
-- Incident 04: DVWA File Upload Analysis
+- [Incident 04: DVWA File Upload Analysis](./incident-04-dvwa-file-upload-analysis/report.md)
 
 ## 목표
 - 파일 업로드 취약점 구조 이해
