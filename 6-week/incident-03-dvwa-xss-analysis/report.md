@@ -6,7 +6,7 @@
 
 공격자는 입력값 검증이 수행되지 않는 취약점을 이용하여 JavaScript 코드를 삽입할 수 있으며 브라우저에서 스크립트가 실행되는 현상을 통해 취약 여부를 확인할 수 있다.
 
-본 보고서에서는 Reflected XSS 및 Stored XSS 공격을 단계적으로 수행하고 access log를 기반으로 공격 흐름을 분석할 예정이다.
+본 보고서에서는 Reflected XSS 및 Stored XSS 공격을 단계적으로 수행하고 access log를 기반으로 공격 흐름을 분석하였다.
 
 ---
 
