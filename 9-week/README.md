@@ -1,18 +1,25 @@
-# 8-Week: WebShell Command Execution Analysis
+# 9-Week: WebShell Detection Rule Analysis
 
 ## 주제
-File Upload 취약점을 이용한 WebShell 업로드 및 명령 실행 공격 분석
+WebShell 공격 패턴 기반 탐지 룰 분석 및 생성
 
 ## Incident 목록
-- [Incident 05: DVWA WebShell Attack Analysis](./incident-05_webshell_analysis/report.md)
+- [Incident 06: WebShell Detection Rule Analysis](./incident-06-webshell-detection/report.md)
 
 ## 목표
-- WebShell 구조 및 동작 방식 이해
-- 명령 실행(RCE) 공격 흐름 분석
-- 웹 로그 기반 공격 흔적 식별 및 IOC 도출
+- WebShell 공격 로그 패턴 식별
+- cmd 파라미터 기반 탐지 조건 정의
+- 간단한 탐지 룰(grep, Snort, YARA) 생성
 
 ---
 
-※ 본 주차는 DVWA 환경에서 File Upload 취약점을 이용하여 WebShell을 업로드하고,
-명령 실행 과정을 분석한 뒤 웹 서버 로그를 기반으로 공격 행위를 추적한다.
+## 주요 내용
+- WebShell 공격 로그 분석
+- 공격 패턴 기반 탐지 키워드 도출
+- 탐지 룰 작성 및 적용
+
+---
+
+※ 본 주차는 이전 주차에서 수행한 WebShell 공격 로그를 기반으로  
+탐지 가능한 패턴을 분석하고, 이를 활용한 탐지 룰을 설계하는 것을 목표로 한다.
 상세 내용은 report.md에 정리한다.
