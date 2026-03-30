@@ -17,19 +17,34 @@
 ## 3. 공격 로그 분석
 
 ### 3.1 WebShell 공격 로그 확인
-(작성 예정)
 
-- WebShell 접근 로그 분석
-- cmd 파라미터 포함 요청 확인
+이전 주차에서 수행한 WebShell 공격 실습 과정에서 확보한 access log 화면을 기준으로,
+WebShell 명령 실행 요청을 확인하였다.
+
+확인된 주요 요청은 다음과 같다.
+
+```
+GET /hackable/uploads/shell.php?cmd=id
+GET /hackable/uploads/shell.php?cmd=whoami
+GET /hackable/uploads/shell.php?cmd=uname%20-a
+```
+
+위 요청을 통해 업로드된 WebShell 파일에 직접 접근하여 cmd 파라미터를 이용한
+명령 실행이 이루어진 것을 확인할 수 있다.
 
 ---
 
 ### 3.2 주요 공격 패턴 식별
-(작성 예정)
 
-- cmd= 파라미터 사용
-- /uploads/ 경로 접근
-- php 파일 실행
+WebShell 공격 로그를 기반으로 다음과 같은 공통 패턴을 식별하였다.
+
+- cmd= 파라미터를 포함한 요청
+- /hackable/uploads/ 디렉토리 접근
+- shell.php 파일 실행
+- GET 요청을 통한 명령 전달
+
+해당 패턴은 정상적인 사용자 요청에서는 발생하지 않는 비정상적인 요청 형태이며,
+WebShell을 이용한 원격 명령 실행 공격의 특징으로 판단할 수 있다.
 
 ---
 
