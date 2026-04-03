@@ -1,0 +1,5 @@
+# WebShell cmd 파라미터 탐지
+grep "cmd=" access.log
+
+# 압축 로그 탐지 (실무 환경)
+zgrep "cmd=" /var/log/nginx/access.log-*.gz
