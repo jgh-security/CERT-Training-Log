@@ -30,3 +30,4 @@
 * [8주차: WebShell 기반 명령 실행(RCE) 침해 로그 분석 (DVWA 기반)](8-week/README.md)
 * [9주차: WebShell 공격 탐지 룰 분석 및 생성 (Detection 기반)](9-week/README.md)
 * [10주차: WebShell 탐지 우회 및 탐지 고도화 분석 (Detection Evasion 기반)](10-week/README.md)
+* [11주차: WebShell 침해 이후 포렌식 분석 및 타임라인 재구성 (Forensic 기반)](11-week/README.md)
