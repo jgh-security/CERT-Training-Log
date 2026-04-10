@@ -25,28 +25,35 @@
 
 ## 3. 공격 로그 분석
 
-### 3.1 WebShell 요청 확인
+### 3.1 WebShell 명령 실행
 
-WebShell을 이용한 명령 실행 요청은 다음과 같은 형태로 발생한다.
+WebShell을 이용하여 cmd 파라미터 기반 명령 실행을 수행하였다.
 
-```
-GET /hackable/uploads/shell.php?cmd=id
-```
-
-해당 요청을 통해 WebShell 파일에 접근하여 cmd 파라미터를 이용한 명령 실행이 이루어진다.
+![WebShell Command Execution](./evidence/screenshots/01_webshell_cmd_execution.png)
 
 ---
 
-### 3.2 공격 패턴 식별
+### 3.2 로그 기반 탐지
 
-로그 분석을 통해 다음과 같은 공통 패턴을 확인하였다.
+access.log에서 cmd 파라미터를 포함한 요청을 grep을 통해 탐지하였다.
 
-* cmd= 파라미터 포함
-* /hackable/uploads/ 경로 접근
-* .php 파일 실행
-* GET 요청 기반 명령 전달
+![grep cmd detection](./evidence/screenshots/02_grep_cmd_detection.png)
 
-이는 WebShell 기반 원격 명령 실행 공격의 특징적인 패턴이다.
+---
+
+### 3.3 탐지 우회 시도 (exec 파라미터)
+
+cmd 대신 exec 파라미터를 사용하여 탐지 우회를 시도하였다.
+
+![exec request](./evidence/screenshots/03_exec_request.png)
+
+---
+
+### 3.4 우회 요청 로그 확인
+
+exec 파라미터 요청은 로그에 기록되지만 기존 cmd 기반 탐지에서는 식별되지 않는다.
+
+![exec log](./evidence/screenshots/04_exec_log.png)
 
 ---
 
@@ -66,67 +73,27 @@ GET /hackable/uploads/shell.php?cmd=id
 cmd= 포함 요청 AND uploads 경로 접근
 ```
 
-단일 키워드 기반 탐지는 오탐 가능성이 있으므로 경로 조건과 함께 사용하는 것이 효과적이다.
-
 ---
 
 ## 5. 탐지 룰 및 검증
 
-### 5.1 grep 기반 탐지
-
-다음 명령어를 통해 WebShell 요청을 탐지하였다.
-
-```bash
-grep "cmd=" access.log
-```
-
-이를 통해 cmd 파라미터를 포함한 요청이 로그에서 식별되는 것을 확인하였다.
-
----
-
-### 5.2 탐지 우회 분석
-
-파라미터 이름을 변경한 요청(exec=id)을 수행하였다.
-
-해당 요청은 명령 실행은 실패하였으나, 로그에는 기록되었으며 기존 cmd 기반 탐지에서는 식별되지 않았다.
-
-이를 통해 특정 파라미터에 의존하는 탐지 방식의 한계를 확인하였다.
-
----
-
-### 5.3 Snort 기반 탐지
+### 5.1 Snort 기반 탐지
 
 Snort를 이용하여 네트워크 기반 탐지를 수행하였다.
 
-다음과 같은 룰을 적용하였다.
-
-```
-alert tcp any any -> any 80 (msg:"WebShell cmd detection"; content:"cmd="; sid:1000001; rev:1;)
-```
+![snort running](./evidence/screenshots/05_snort_running.png)
 
 WebShell 요청 발생 시 Snort에서 alert가 발생하는 것을 확인하였다.
 
-이를 통해 네트워크 기반 IDS에서도 WebShell 공격을 탐지할 수 있음을 검증하였다.
+![snort alert](./evidence/screenshots/06_snort_alert.png)
 
 ---
 
-### 5.4 YARA 기반 탐지
+### 5.2 YARA 기반 탐지
 
 YARA를 이용하여 WebShell 파일 탐지를 수행하였다.
 
-다음과 같은 룰을 적용하였다.
-
-```
-rule WebShell_Detection
-{
-    strings:
-        $a = "system($_GET"
-    condition:
-        $a
-}
-```
-
-업로드 디렉토리를 대상으로 스캔한 결과 WebShell 파일이 탐지되는 것을 확인하였다.
+![yara detection](./evidence/screenshots/07_yara_webshell_detection.png)
 
 ---
 
