@@ -1,116 +1,145 @@
-# Incident 07 - WebShell Detection Rule Analysis
+# Incident 08 - WebShell Post-Exploitation Forensic Analysis
+
+---
+
+※ 본 보고서는 WebShell 침해 이후 포렌식 분석을 위해 작성되었으며, 일부 항목은 향후 분석을 통해 보완될 예정이다.
 
 ---
 
 ## 1. 사건 개요
 
-본 보고서는 DVWA(Damn Vulnerable Web Application) 환경에서 File Upload 취약점을 통해 업로드된 WebShell을 이용한
-원격 명령 실행(RCE) 공격을 기반으로, 웹 서버 로그 및 탐지 룰을 통해 공격을 식별하는 것을 목적으로 한다.
+본 분석은 DVWA 환경에서 WebShell 업로드 및 명령 실행 이후,
+시스템 내에 남은 로그 및 흔적을 기반으로 침해 행위를 분석하기 위해 수행될 예정이다.
 
-공격자는 업로드된 WebShell 파일에 접근하여 cmd 파라미터를 통해 시스템 명령을 실행할 수 있으며,
-이 과정에서 발생하는 로그 및 네트워크 트래픽, 파일 특성을 기반으로 탐지 가능 여부를 분석하였다.
+특히 공격 이후의 로그를 분석하여 공격자의 행위 흐름을 재구성하고,
+타임라인 기반으로 침해 과정을 정리하는 것을 목표로 한다.
 
 ---
 
 ## 2. 분석 환경
 
-| 구분              | 환경                        |
-| --------------- | ------------------------- |
-| Target          | RHEL                      |
-| Web Server      | nginx                     |
-| Web Application | DVWA                      |
-| 주요 로그           | /var/log/nginx/access.log |
+| 구분              | 환경                                         |
+| --------------- | ------------------------------------------ |
+| Target          | RHEL                                       |
+| Web Server      | nginx                                      |
+| Web Application | DVWA                                       |
+| 주요 로그           | /var/log/nginx/access.log, /var/log/secure |
 
 ---
 
-## 3. 공격 로그 분석
+## 3. 초기 침해 흔적 분석
 
-### 3.1 WebShell 명령 실행
+※ WebShell 접근 및 명령 실행 로그 분석 예정
 
-WebShell을 이용하여 cmd 파라미터 기반 명령 실행을 수행하였다.
-
-![WebShell Command Execution](./evidence/screenshots/01_webshell_cmd_execution.png)
-
----
-
-### 3.2 로그 기반 탐지
-
-access.log에서 cmd 파라미터를 포함한 요청을 grep을 통해 탐지하였다.
-
-![grep cmd detection](./evidence/screenshots/02_grep_cmd_detection.png)
-
----
-
-### 3.3 탐지 우회 시도 (exec 파라미터)
-
-cmd 대신 exec 파라미터를 사용하여 탐지 우회를 시도하였다.
-
-![exec request](./evidence/screenshots/03_exec_request.png)
-
----
-
-### 3.4 우회 요청 로그 확인
-
-exec 파라미터 요청은 로그에 기록되지만 기존 cmd 기반 탐지에서는 식별되지 않는다.
-
-![exec log](./evidence/screenshots/04_exec_log.png)
-
----
-
-## 4. 탐지 조건 정의
-
-### 4.1 탐지 키워드
-
-* cmd=
-* /hackable/uploads/
-* .php
-
----
-
-### 4.2 탐지 로직
+### 3.1 WebShell 접근 로그
 
 ```
-cmd= 포함 요청 AND uploads 경로 접근
+GET /hackable/uploads/shell.php?cmd=id HTTP/1.1
 ```
 
----
-
-## 5. 탐지 룰 및 검증
-
-### 5.1 Snort 기반 탐지
-
-Snort를 이용하여 네트워크 기반 탐지를 수행하였다.
-
-![snort running](./evidence/screenshots/05_snort_running.png)
-
-WebShell 요청 발생 시 Snort에서 alert가 발생하는 것을 확인하였다.
-
-![snort alert](./evidence/screenshots/06_snort_alert.png)
+→ WebShell 접근 여부 확인 예정
 
 ---
 
-### 5.2 YARA 기반 탐지
+### 3.2 명령 실행 흔적
 
-YARA를 이용하여 WebShell 파일 탐지를 수행하였다.
+```
+cmd=id  
+cmd=whoami  
+cmd=uname -a
+```
 
-![yara detection](./evidence/screenshots/07_yara_webshell_detection.png)
-
----
-
-## 6. 대응 및 개선 방안
-
-* 업로드 디렉토리에서 PHP 실행 제한
-* 입력값 검증 강화
-* system(), exec() 등 위험 함수 제한
-* 로그 및 IDS 기반 탐지 체계 구축
+→ 공격자의 명령 실행 패턴 분석 예정
 
 ---
 
-## 7. 결론
+## 4. 시스템 로그 분석
 
-본 분석에서는 WebShell을 이용한 원격 명령 실행 공격을 기반으로
-로그, 네트워크, 파일 관점에서 탐지 가능성을 확인하였다.
+※ WebShell 실행 이후 시스템 로그 분석 예정
 
-단일 키워드 기반 탐지는 우회 가능성이 존재하므로
-다양한 탐지 기법을 결합하는 것이 중요함을 확인하였다.
+### 4.1 사용자 로그인 기록
+
+```
+last
+```
+
+→ 공격 시점 전후 사용자 접속 여부 확인 예정
+
+---
+
+### 4.2 명령어 실행 기록
+
+```
+history
+```
+
+→ 공격자가 수행한 추가 명령 분석 예정
+
+---
+
+### 4.3 보안 로그 분석
+
+```
+/var/log/secure
+```
+
+→ 인증 및 권한 상승 여부 분석 예정
+
+---
+
+## 5. 파일 시스템 분석
+
+※ 업로드 파일 및 시스템 흔적 분석 예정
+
+### 5.1 업로드 파일 확인
+
+```
+/hackable/uploads/
+```
+
+→ WebShell 파일 존재 여부 확인 예정
+
+---
+
+### 5.2 파일 정보 분석
+
+```
+ls -al  
+stat shell.php
+```
+
+→ 파일 생성 시간 및 권한 정보 분석 예정
+
+---
+
+## 6. 타임라인 재구성
+
+※ 로그 기반 타임라인 구성 예정
+
+| 시간 | 이벤트         | 근거         |
+| -- | ----------- | ---------- |
+| -  | WebShell 접근 | access.log |
+| -  | 명령 실행       | access.log |
+| -  | 사용자 행위      | history    |
+| -  | 시스템 로그      | secure     |
+
+---
+
+## 7. 분석 결과
+
+※ 종합 분석 결과 작성 예정
+
+* WebShell 기반 침해 행위 식별 예정
+* 시스템 내 행위 추적 결과 정리 예정
+* 추가 침해 가능성 분석 예정
+
+---
+
+## 8. 결론
+
+본 분석은 WebShell 공격 이후 남은 로그 및 시스템 흔적을 기반으로
+침해 행위를 재구성하는 것을 목표로 한다.
+
+향후 분석을 통해 공격자의 행위 흐름을 명확히 파악하고,
+침해 대응 관점에서 필요한 분석 기법을 정리할 예정이다.
 
