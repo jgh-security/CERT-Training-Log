@@ -4,7 +4,7 @@
 웹 로그 기반 공격 탐지 자동화
 
 ## Incident 목록
-- Incident 09: Log Automation
+* [Incident 09: Log Automation Detection Analysis](./incident-09-log-automation/report.md)
 
 ## 목표
 - 로그 분석 자동화
