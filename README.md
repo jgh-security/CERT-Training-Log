@@ -32,3 +32,4 @@
 * [10주차: WebShell 탐지 우회 및 탐지 고도화 분석 (Detection Evasion 기반)](10-week/README.md)
 * [11주차: WebShell 침해 이후 포렌식 분석 및 타임라인 재구성 (Forensic 기반)](11-week/README.md)
 * [12주차: 공격 로그 자동 분류 및 탐지 자동화 (Python Log Parser 기반)](12-week/README.md)
+* [13주차: Linux 침해 시스템 아티팩트 분석 및 행위 추적 (Forensic 기반)](13-week/README.md)
