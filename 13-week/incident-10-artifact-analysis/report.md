@@ -24,8 +24,8 @@
 
 | 항목 | 내용 |
 |------|------|
-| Attacker | Kali Linux (10.0.0.50) |
-| Target | RHEL Linux (10.0.0.51) |
+| Attacker | Kali Linux (10.0.0.51) |
+| Target | RHEL Linux (10.0.0.50) |
 | 분석 대상 | bash_history, secure 로그 |
 | 분석 도구 | Linux 기본 명령어 |
 | 분석 방식 | 행위 기반 포렌식 분석 |
@@ -120,7 +120,7 @@ session opened for user root
 [2026-05-07 11:38:39]
 SSH 로그인 성공 확인
 - 사용자: nova
-- 접속 IP: 10.0.0.50
+- 접속 IP: 10.0.0.51
 
 [2026-05-07 11:53:48]
 sudo su 명령을 통한 root 권한 상승 확인
