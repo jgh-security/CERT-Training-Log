@@ -1,0 +1,30 @@
+May 13 14:07:37 target polkitd[980]: Registered Authentication Agent for unix-session:2 (system bus name :1.78 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale ko_KR.UTF-8)
+May 13 14:07:41 target gdm-launch-environment][1359]: pam_unix(gdm-launch-environment:session): session closed for user gdm
+May 13 14:07:41 target polkitd[980]: Unregistered Authentication Agent for unix-session:c1 (system bus name :1.34, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale ko_KR.UTF-8) (disconnected from bus)
+May 13 14:07:52 target sshd[5375]: Accepted keyboard-interactive/pam for nova from 10.0.0.51 port 43958 ssh2
+May 13 14:07:52 target sshd[5375]: pam_unix(sshd:session): session opened for user nova(uid=1000) by nova(uid=0)
+May 13 14:08:28 target sudo[5456]:    nova : TTY=pts/0 ; PWD=/home/nova ; USER=root ; COMMAND=/bin/su
+May 13 14:08:28 target sudo[5456]: pam_unix(sudo:session): session opened for user root(uid=0) by nova(uid=1000)
+May 13 14:08:28 target su[5460]: pam_unix(su:session): session opened for user root(uid=0) by nova(uid=0)
+May 13 16:47:30 target su[5460]: pam_unix(su:session): session closed for user root
+May 13 16:47:30 target sudo[5456]: pam_unix(sudo:session): session closed for user root
+May 13 16:47:46 target sshd[5387]: Received disconnect from 10.0.0.51 port 43958:11: disconnected by user
+May 13 16:47:46 target sshd[5387]: Disconnected from user nova 10.0.0.51 port 43958
+May 13 16:47:46 target sshd[5375]: pam_unix(sshd:session): session closed for user nova
+May 13 16:55:19 target su[13392]: pam_unix(su-l:session): session opened for user root(uid=0) by nova(uid=1000)
+May 13 16:56:06 target sudo[13459]:    root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/bin/tail -n 10 /root/.bash_history
+May 13 16:56:06 target sudo[13459]: pam_unix(sudo:session): session opened for user root(uid=0) by nova(uid=0)
+May 13 16:56:06 target sudo[13459]: pam_unix(sudo:session): session closed for user root
+May 13 16:56:17 target sudo[13466]:    root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/bin/tail -n 5 /root/.bash_history
+May 13 16:56:17 target sudo[13466]: pam_unix(sudo:session): session opened for user root(uid=0) by nova(uid=0)
+May 13 16:56:17 target sudo[13466]: pam_unix(sudo:session): session closed for user root
+May 13 17:00:56 target sudo[13739]:    root : TTY=pts/0 ; PWD=/root ; USER=root ; COMMAND=/bin/tail -n 30 /var/log/secure
+May 13 17:00:56 target sudo[13739]: pam_unix(sudo:session): session opened for user root(uid=0) by nova(uid=0)
+May 13 17:00:56 target sudo[13739]: pam_unix(sudo:session): session closed for user root
+May 13 17:15:20 target sshd[13993]: Accepted keyboard-interactive/pam for nova from 10.0.0.253 port 53984 ssh2
+May 13 17:15:20 target sshd[13993]: pam_unix(sshd:session): session opened for user nova(uid=1000) by nova(uid=0)
+May 13 17:15:20 target sshd[13999]: Accepted password for nova from 10.0.0.253 port 53985 ssh2
+May 13 17:15:20 target sshd[13999]: pam_unix(sshd:session): session opened for user nova(uid=1000) by nova(uid=0)
+May 13 17:15:42 target sudo[14126]:    nova : TTY=pts/1 ; PWD=/home/nova ; USER=root ; COMMAND=/bin/tail -n 5 /root/.bash_history
+May 13 17:15:42 target sudo[14126]: pam_unix(sudo:session): session opened for user root(uid=0) by nova(uid=1000)
+May 13 17:15:42 target sudo[14126]: pam_unix(sudo:session): session closed for user root

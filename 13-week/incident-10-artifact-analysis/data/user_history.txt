@@ -1,0 +1,15 @@
+ip a
+sudo firewall-cmd --zone=public --change-interface=ens160 --permanent
+firewall-cmd --reload
+hostnamectl set-hostname target
+exec bash
+su -
+history
+cat ~/.bash_history
+id
+pwd
+ls
+grep "/bin/bash" /etc/passwd
+sudo su
+history -a
+exit

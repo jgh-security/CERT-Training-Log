@@ -1,0 +1,5 @@
+ls
+touch realbackdoor.sh
+chmod +x realbackdoor.sh 
+history -a
+exit
